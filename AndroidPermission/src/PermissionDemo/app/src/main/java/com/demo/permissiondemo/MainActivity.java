@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG="PermissionDemo";
     private Button btnApplySingle,btnApplyMultiple;
 
-    private Handler mHandler=new Handler(){
+    private Handler mHandler=new Handler(){//
         @Override
-        public void handleMessage(Message msg) {
+        public void handleMessage(Message msg) {//
             switch (msg.what){
                 case 1:{//显示Toast
                     String strTip=msg.obj.toString();
@@ -39,20 +39,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {//
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
     }
 
-    public void initView(){
+    public void initView(){//
         btnApplySingle=(Button)findViewById(R.id.btnApplySingle);
         btnApplySingle.setOnClickListener(this);
         btnApplyMultiple=(Button)findViewById(R.id.btnApplyMultiple);
         btnApplyMultiple.setOnClickListener(this);
     }
 
-    private void showToast(String strTip){
+    private void showToast(String strTip){//
         Log.i(TAG,strTip);
         Message msg=Message.obtain();
         msg.what=1;
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view) {//
         switch (view.getId()){
             case R.id.btnApplySingle:{
                 applyForSinglePermission();
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private String PM_SINGLE=Manifest.permission.WRITE_EXTERNAL_STORAGE;
     //申请单个权限
-    public void applyForSinglePermission(){
+    public void applyForSinglePermission(){//
         Log.i(TAG,"applyForSinglePermission");
         try{
             //如果操作系统SDK级别在23之上（android6.0），就进行动态权限申请
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.CAMERA,Manifest.permission.WRITE_CONTACTS
     };
     //申请多个权限
-    public void applyForMultiplePermissions(){
+    public void applyForMultiplePermissions(){//
         Log.i(TAG,"applyForMultiplePermissions");
         try{
             //如果操作系统SDK级别在23之上（android6.0），就进行动态权限申请

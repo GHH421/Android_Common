@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnGetState;
     private Activity mContext;
 
-    private Handler mHandler=new Handler(){
+    private Handler mHandler=new Handler(){//
         @Override
-        public void handleMessage(@NonNull Message msg) {
+        public void handleMessage(@NonNull Message msg) {//
             switch (msg.what){
                 case 1:{//显示提示信息
                     String strTip=msg.obj.toString();
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {//
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
     }
 
-    private void initView(){
+    private void initView(){//
         txtTip=(TextView)findViewById(R.id.txtTip);
         txtTip.setMovementMethod(ScrollingMovementMethod.getInstance());
         txtTip.setText("");
@@ -89,18 +89,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnGetState.setOnClickListener(this);
     }
 
-    private void showTip(String strTip){
+    private void showTip(String strTip){//
         Message message=Message.obtain();
         message.what=1;
         message.obj=strTip;
         mHandler.sendMessage(message);
     }
 
-    private void cleanTip(){
+    private void cleanTip(){//
         mHandler.sendEmptyMessage(2);
     }
 
-    private void showToast(String strTip){
+    private void showToast(String strTip){//
         Message message=Message.obtain();
         message.what=3;
         message.obj=strTip;
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) {//
         switch (v.getId()){
             case R.id.btnRequest1_1:{//申请日历权限
                 requestPermission1_1();
